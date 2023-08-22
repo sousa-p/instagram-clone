@@ -28,7 +28,8 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="d-flex gap-3">
                         <div>
-                            <img src="/images/logo-instagram.png" alt="Instagram logo" style="max-height: 33px; border-right: 1px solid #333; padding-right: 15px"/>
+                            <img src="/images/logo-instagram.png" alt="Instagram logo"
+                                style="max-height: 33px; border-right: 1px solid #333; padding-right: 15px" />
                         </div>
                         <p class="pl-3 pt-1">Instagram</p>
                     </div>
@@ -64,13 +65,13 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
