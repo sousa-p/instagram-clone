@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\GetAuthenticatedUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = Auth::user();
+
+    if ($user)
+        return redirect()->route('profile.show');
+    else
+        return redirect('/login');
 });
 
 Auth::routes();
 
-Route::get('/profile/{user}', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.show');
-
-Auth::routes();
-
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->middleware(['auth','GetAuthenticatedUser'])->name('profile.show');
