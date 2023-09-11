@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\GetAuthenticatedUser;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->middleware(['auth','GetAuthenticatedUser'])->name('profile.show');
+Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->middleware(['auth','GetAuthenticatedUser'])->name('profile.show');
+Route::get('/p/create', [\App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+

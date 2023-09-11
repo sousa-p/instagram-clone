@@ -8,7 +8,10 @@
             </div>
             <div class="col-5 pt-4">
                 <div>
-                    <h1>{{ $user->username }}</h1>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>{{ $user->username }}</h1>
+                        <a href="/p/create"><button class="btn btn-primary">Create Post</button></a>
+                    </div>
                 </div>
                 <div class="row pt-3 pb-3">
                     <div class="col-4"><strong>7,477</strong> posts</div>
@@ -19,7 +22,7 @@
                     <strong>{{ $user->profile->title }}</strong>
                 </div>
                 <div class="">
-                    <p>{{ $user->profile->description }}</p>
+                    <p>{{ $user->profile->description}}</p>
                 </div>
                 <div class=""><a href="#">{{ $user->profile->url ?? 'N/A' }}</a></div>
             </div>

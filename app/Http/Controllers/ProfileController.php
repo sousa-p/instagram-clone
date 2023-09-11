@@ -9,7 +9,7 @@ class ProfileController extends Controller
 {
     public function index(Request $request) {
         $user = $request->input('user');
-        return view('profile', [
+        return view('profile.home', [
             'user' => $user
         ]);
     }
